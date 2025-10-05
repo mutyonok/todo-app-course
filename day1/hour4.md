@@ -5,18 +5,18 @@
 ---
 
 ## 🎯 GOAL
-Transform the raw HTML into a clean, centered interface with proper spacing, styled inputs, and a professional button. Deploy and see the visual transformation live.
+Transform raw HTML into a clean, centered interface with proper spacing and professional styling.
 
 ---
 
 ## 📖 KEY CONCEPTS: The CSS Box Model & Modern Centering
 
 **The Box Model:**
-Every element is a box with four layers:
-1. **Content** - the text/image itself
-2. **Padding** - space inside the border
-3. **Border** - the edge of the element
-4. **Margin** - space outside the border
+Every element has four layers:
+1. **Content** - text/image itself
+2. **Padding** - space inside border
+3. **Border** - edge of element
+4. **Margin** - space outside border
 
 ```
 ┌─────── margin ───────┐
@@ -29,286 +29,256 @@ Every element is a box with four layers:
 ```
 
 **Modern centering with Flexbox:**
-Old way (2010s): complex margin calculations, positioning hacks
-Modern way: Flexbox does it in 3 lines
-
-This matters because Flexbox is how React/Vue developers build layouts.
+Flexbox centers content in 3 lines vs. old complex methods. This is how React/Vue developers build layouts.
 
 ---
 
 ## 💡 WHAT WE'RE ACHIEVING
 
-You'll write CSS that centers content, adds breathing room with padding/margin, styles the input and button to look professional, and uses a simple color scheme. The app will look intentional instead of raw HTML.
+Write CSS that centers content, adds breathing room, and makes input/button look professional with a clean color scheme.
 
 ---
 
 ## 📋 THE PROCESS
 
-1. **Reset defaults** and set up the body
-2. **Center the main container** with Flexbox
-3. **Style the input field**
-4. **Style the button** with hover effect
-5. **Add spacing** throughout
-6. **Deploy and compare** before/after
+1. **Reset defaults** and style body
+2. **Center main container**
+3. **Style input and button**
+4. **Add spacing throughout**
+5. **Deploy and see transformation**
+
+---
+
+## 🎨 COLOR SCHEME
+
+Use these colors consistently:
+
+- **Background:** `#f5f5f5` (light gray - easy on eyes)
+- **Card/White areas:** `white`
+- **Text:** `#333` (dark gray - better than pure black)
+- **Primary/Button:** `#4a90e2` (blue - action color)
+- **Borders:** `#e0e0e0` (light gray)
+- **Placeholder text:** `#999` (medium gray)
 
 ---
 
 ## ✅ TASKS
 
-### **Task 1: Base styles (10 min)**
+### **Task 1: Reset defaults (5 min)**
 
-Open `styles.css` and add:
+Open `styles.css`.
 
-```css
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+**Goal:** Remove browser's default spacing and make calculations predictable.
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  background-color: #f5f5f5;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-```
+**What to style:**
+- Select ALL elements (`*`)
+- Remove all default margin and padding
+- Set `box-sizing` to `border-box` (makes width include padding/border)
 
-**What this does:**
-- `* { ... }` - Removes browser default spacing
-- `box-sizing: border-box` - Makes width calculations predictable
-- `display: flex` - Turns body into flex container
-- `justify-content: center` - Centers horizontally
-- `align-items: center` - Centers vertically
-- `min-height: 100vh` - Full viewport height (vh = viewport height)
+**Try writing this yourself first.**
 
-**Test it:** Save and check your browser. Content should be centered on page.
+**Hint after 5 min:** Google "CSS reset box-sizing" or ask Claude: "How do I reset default browser spacing and use border-box?"
 
 ---
 
-### **Task 2: Style main container (10 min)**
+### **Task 2: Style and center the body (10 min)**
 
-Add below your body styles:
+**Design goal:** Page background should be light gray, content centered both horizontally and vertically.
 
+**What the body needs:**
+- Font family (use system fonts: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif`)
+- Background color: `#f5f5f5`
+- Minimum height: full viewport (use `100vh` - viewport height)
+- Some padding around edges (`20px`)
+- Body content must be **centered using Flexbox** (tricky - see hints below)
+
+<details>
+<summary>**Flexbox centering (use these hints):**</summary>
 ```css
-main {
-  background-color: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-}
-
-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-h1 {
-  color: #333;
-  font-size: 32px;
-  font-weight: 600;
-}
+display: flex;              /* Turns body into flex container */
+justify-content: center;    /* Centers horizontally */
+align-items: center;        /* Centers vertically */
 ```
+</details>
 
-**Understanding these properties:**
-- `border-radius` - Rounded corners (modern look)
-- `box-shadow` - Subtle shadow for depth (rgba = red, green, blue, alpha/transparency)
-- `max-width` - Won't exceed 500px even on large screens
-- `width: 100%` - Takes full width up to max-width
+**Try writing this yourself using the hints.**
 
-**Test it:** White card should appear with rounded corners and shadow.
+**Stuck?** Ask Claude: "How do I center content vertically and horizontally using flexbox?"
+
+**Test:** Save and refresh browser. Content should be centered.
 
 ---
 
-### **Task 3: Style input section (15 min)**
+### **Task 3: Style main container (10 min)**
 
-```css
-.todo-input {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-}
+**Design goal:** White card in center with rounded corners, proper width, and breathing room inside.
 
-#taskInput {
-  flex: 1;
-  padding: 12px 16px;
-  font-size: 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  outline: none;
-  transition: border-color 0.3s;
-}
+**Style your `<main>` element:**
+- Background: `white`
+- Padding: `40px` (space inside so content doesn't touch edges)
+- Rounded corners: `12px` (modern look)
+- Width: `100%` of available space
+- Maximum width: `500px` (won't get too wide on large screens)
 
-#taskInput:focus {
-  border-color: #4a90e2;
-}
-
-#taskInput::placeholder {
-  color: #999;
-}
-```
-
-**Key concepts:**
-- `flex: 1` - Input takes all available space, button stays its natural width
-- `gap: 10px` - Space between input and button (easier than margins)
-- `outline: none` - Removes default browser outline (we'll style focus state instead)
-- `:focus` - State when user clicks/tabs into input
-- `transition` - Smooth color change (0.3 seconds)
-- `::placeholder` - Styles the placeholder text
-
-**Test it:** Click the input field - border should turn blue smoothly.
+**Test:** White card appears in center with rounded corners.
 
 ---
 
-### **Task 4: Style button (15 min)**
+### **Task 4: Style header and heading (5 min)**
 
-```css
-#addBtn {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-  background-color: #4a90e2;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+**Design goal:** Title centered with proper size and spacing below.
 
-#addBtn:hover {
-  background-color: #357abd;
-}
+**Style your `<header>` element:**
+- Center the text
+- Add bottom margin: `30px` (space before next section)
 
-#addBtn:active {
-  transform: translateY(1px);
-}
-```
+**Style your `<h1>` element:**
+- Color: `#333`
+- Font size: `32px`
+- Font weight: `600` (semi-bold)
 
-**Understanding states:**
-- `:hover` - When mouse is over button (darker blue)
-- `:active` - When button is being clicked (moves down 1px)
-- `cursor: pointer` - Hand cursor on hover
-- `border: none` - Removes default button border
-
-**Test it:** Hover and click the button. Notice the color change and subtle press effect.
+**Test:** Heading looks prominent and has space below.
 
 ---
 
-### **Task 5: Style task list container (5 min)**
+### **Task 5: Style input section layout (10 min)**
 
-```css
-.todo-list ul {
-  list-style: none;
-}
+**Design goal:** Input and button sit side-by-side, input takes most space.
 
-#taskList {
-  min-height: 50px;
-}
-```
+**Find the section containing input and button** (use class or ID selector).
 
-**Why:**
-- `list-style: none` - Removes bullet points
-- `min-height` - Prevents collapse when empty
+**Style this section:**
+- Use Flexbox: `display: flex`
+- Add gap between items: `gap: 10px` (easier than margins)
+- Add bottom margin: `30px` (space before list)
 
-**Test it:** The empty list area maintains space.
+**Test:** Input and button should be on same line with gap between.
 
 ---
 
-### **Task 6: Deploy with professional workflow (5 min)**
+### **Task 6: Style the input field (10 min)**
 
-**The workflow you'll use hundreds of times:**
+**Design goal:** Professional-looking input that's easy to click and type in.
+
+**Style your input element (use the ID you gave it):**
+- `flex: 1` (takes all available space, button stays small)
+- Padding: `12px 16px` (vertical horizontal)
+- Font size: `16px` (readable, prevents zoom on mobile)
+- Border: `2px solid #e0e0e0`
+- Rounded corners: `8px`
+
+**Style the placeholder text:**
+- Use `::placeholder` selector
+- Color: `#999`
+
+**Try this yourself.** The `flex: 1` property is the key to making input expand.
+
+**Hint:** Input selector might be `#yourInputId` and placeholder is `#yourInputId::placeholder`
+
+**Test:** Input should look clean with gray border and placeholder text visible.
+
+---
+
+### **Task 7: Style the button (10 min)**
+
+**Design goal:** Button stands out as the action element.
+
+**Style your button element (use the ID you gave it):**
+- Padding: `12px 24px` (more horizontal padding)
+- Font size: `16px`
+- Font weight: `600` (bold)
+- Text color: `white`
+- Background: `#4a90e2` (blue)
+- No border
+- Rounded corners: `8px`
+- Cursor: `pointer` (shows hand on hover)
+
+**Test:** Button should be blue with white text.
+
+---
+
+### **Task 8: Style list container (3 min)**
+
+**Design goal:** Remove default bullet points from list.
+
+**Style the `<ul>` element:**
+- Remove list style - we don't need bullet points
+
+**Test:** No bullet points appear (though list is empty currently).
+
+---
+
+### **Task 9: Deploy with professional workflow (5 min)**
 
 ```bash
 git status
 ```
-See what changed (should show `styles.css` modified).
+See `styles.css` modified.
 
 ```bash
 git add .
 ```
-Stage all changes.
 
 ```bash
 git commit -m "Add basic CSS styling and layout"
 ```
-Create snapshot with descriptive message.
 
 ```bash
 git push
 ```
-Upload to GitHub and auto-deploy.
 
-**Wait 30-60 seconds, then refresh your GitHub Pages URL.**
-
----
-
-### **Task 7: Before/after comparison (3 min)**
-
-Take a moment to appreciate the transformation:
-
-**Before:** Raw HTML, left-aligned, default fonts, no spacing
-**After:** Centered card, professional colors, proper spacing, interactive elements
-
-This demonstrates how CSS transforms structure into experience.
+Wait 30-60 seconds, refresh your GitHub Pages URL.
 
 ---
 
-### **Task 8: Understanding check (2 min)**
+### **Task 10: Understanding check (2 min)**
 
 Answer quickly:
 
-1. What does `display: flex` on the body do?
-2. Why do we use `:hover` on the button?
-3. What's the difference between `padding` and `margin`?
+1. What does `display: flex` do?
+2. What's the difference between `padding` and `margin`?
+3. Why use `flex: 1` on the input?
 
 ---
 
 ## ✅ SUCCESS CHECKS
 
-**You're done with Hour 4 when:**
-- [ ] White card is centered on page with shadow
-- [ ] Input field border turns blue when focused
-- [ ] Button changes color on hover and presses down when clicked
-- [ ] Everything is deployed and live at your GitHub Pages URL
-- [ ] You understand the git workflow: `status → add . → commit → push`
+**You're done when:**
+- [ ] White card centered on gray background
+- [ ] Input and button on same line
+- [ ] Input takes most width, button stays compact
+- [ ] Rounded corners throughout
+- [ ] Proper spacing (not cramped)
+- [ ] Deployed to GitHub Pages
+- [ ] You wrote CSS yourself (not copied)
 
 ---
 
 ## ➜ UNDERSTANDING CHECK
 
-**Without looking at code:**
-
-Explain what Flexbox does and why it's better than old centering methods. If you can't, that's your signal to ask Claude: "Explain Flexbox centering in simple terms."
+Without looking at code, explain what Flexbox does and how it helped you in this hour.
 
 ---
 
 ## 🎉 DAY 1 COMPLETE!
 
-You've accomplished:
-- ✅ Set up Git and GitHub
-- ✅ Created and deployed a repository
-- ✅ Built semantic HTML structure
-- ✅ Styled a professional-looking interface
-- ✅ Mastered the professional git workflow
+**Accomplished:**
+- ✅ Git and GitHub setup
+- ✅ Repository deployed
+- ✅ Semantic HTML structure
+- ✅ Professional styling
+- ✅ Git workflow mastered
 
-**Your app is live online.** Tomorrow you'll make it interactive - adding, deleting, and completing tasks.
+Your app is live. Tomorrow: make it interactive.
 
 ---
 
 ## 🎯 END OF DAY REFLECTION (5 minutes)
 
-Before stopping, write brief answers:
+Write brief answers:
 
-1. What did I learn today that I didn't know this morning?
+1. What did I learn today?
 2. What's still confusing?
-3. The git workflow in my own words: _______
+3. Git workflow in my own words: _______
 
-This reflection matters for retention. Don't skip it.
-
-**Next session:** Day 2, Hour 1 - Making the button actually do something when clicked.
+**Next session:** Day 2, Hour 1 - Making the button respond to clicks.
