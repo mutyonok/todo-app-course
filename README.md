@@ -1,4 +1,4 @@
-# TODO LIST APPLICATION - 7 DAY PROJECT ROADMAP
+# TODO LIST APPLICATION - 7 DAY PROJECT
 
 By the end of 7 days, you'll have a fully functional, deployed todo list application with:
 
