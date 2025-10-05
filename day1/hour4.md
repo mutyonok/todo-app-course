@@ -51,7 +51,7 @@ Write CSS that centers content, adds breathing room, and makes input/button look
 
 ## 🎨 COLOR SCHEME
 
-Use these colors consistently:
+Suggestions for colors:
 
 - **Background:** `#f5f5f5` (light gray - easy on eyes)
 - **Card/White areas:** `white`
@@ -59,6 +59,9 @@ Use these colors consistently:
 - **Primary/Button:** `#4a90e2` (blue - action color)
 - **Borders:** `#e0e0e0` (light gray)
 - **Placeholder text:** `#999` (medium gray)
+
+
+You can come up with your own colors, but use them consistently.
 
 ---
 
@@ -69,11 +72,6 @@ Use these colors consistently:
 Open `styles.css`.
 
 **Goal:** Remove browser's default spacing and make calculations predictable.
-
-**What to style:**
-- Select ALL elements (`*`)
-- Remove all default margin and padding
-- Set `box-sizing` to `border-box` (makes width include padding/border)
 
 **Try writing this yourself first.**
 
@@ -87,18 +85,20 @@ Open `styles.css`.
 
 **What the body needs:**
 - Font family (use system fonts: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif`)
-- Background color: `#f5f5f5`
-- Minimum height: full viewport (use `100vh` - viewport height)
-- Some padding around edges (`20px`)
+- Background color
+- Minimum height: full viewport
+- Some padding around edges
 - Body content must be **centered using Flexbox** (tricky - see hints below)
 
 <details>
-<summary>**Flexbox centering (use these hints):**</summary>
-```css
-display: flex;              /* Turns body into flex container */
-justify-content: center;    /* Centers horizontally */
-align-items: center;        /* Centers vertically */
-```
+  <summary><b>Flexbox centering (use these hints):</b></summary>
+
+  ```css
+  display: flex;              /* Turns body into flex container */
+  justify-content: center;    /* Centers horizontally */
+  align-items: center;        /* Centers vertically */
+
+  ```
 </details>
 
 **Try writing this yourself using the hints.**
@@ -114,11 +114,11 @@ align-items: center;        /* Centers vertically */
 **Design goal:** White card in center with rounded corners, proper width, and breathing room inside.
 
 **Style your `<main>` element:**
-- Background: `white`
-- Padding: `40px` (space inside so content doesn't touch edges)
-- Rounded corners: `12px` (modern look)
+- Background
+- Padding: space inside so content doesn't touch edges
+- Rounded corners
 - Width: `100%` of available space
-- Maximum width: `500px` (won't get too wide on large screens)
+- Maximum width so it won't get too wide on large screens
 
 **Test:** White card appears in center with rounded corners.
 
@@ -130,12 +130,12 @@ align-items: center;        /* Centers vertically */
 
 **Style your `<header>` element:**
 - Center the text
-- Add bottom margin: `30px` (space before next section)
+- Add space before next section
 
 **Style your `<h1>` element:**
-- Color: `#333`
-- Font size: `32px`
-- Font weight: `600` (semi-bold)
+- Remember to use proper font color
+- Font size: big enough
+- Font weight: semi-bold
 
 **Test:** Heading looks prominent and has space below.
 
@@ -148,9 +148,8 @@ align-items: center;        /* Centers vertically */
 **Find the section containing input and button** (use class or ID selector).
 
 **Style this section:**
-- Use Flexbox: `display: flex`
-- Add gap between items: `gap: 10px` (easier than margins)
-- Add bottom margin: `30px` (space before list)
+- Use Flexbox and add gap between elements
+- Add space before list
 
 **Test:** Input and button should be on same line with gap between.
 
@@ -160,16 +159,14 @@ align-items: center;        /* Centers vertically */
 
 **Design goal:** Professional-looking input that's easy to click and type in.
 
-**Style your input element (use the ID you gave it):**
-- `flex: 1` (takes all available space, button stays small)
-- Padding: `12px 16px` (vertical horizontal)
-- Font size: `16px` (readable, prevents zoom on mobile)
-- Border: `2px solid #e0e0e0`
-- Rounded corners: `8px`
+**Style your input element:**
+- Input takes all available space, button stays small
+- Padding: vertical and horizontal
+- Add solid border
+- Rounded corners
 
 **Style the placeholder text:**
-- Use `::placeholder` selector
-- Color: `#999`
+- Change color of placeholer (`::placeholder` selector)
 
 **Try this yourself.** The `flex: 1` property is the key to making input expand.
 
@@ -184,13 +181,10 @@ align-items: center;        /* Centers vertically */
 **Design goal:** Button stands out as the action element.
 
 **Style your button element (use the ID you gave it):**
-- Padding: `12px 24px` (more horizontal padding)
-- Font size: `16px`
-- Font weight: `600` (bold)
-- Text color: `white`
-- Background: `#4a90e2` (blue)
+- Padding: more horizontal padding
+- Background
 - No border
-- Rounded corners: `8px`
+- Rounded corners
 - Cursor: `pointer` (shows hand on hover)
 
 **Test:** Button should be blue with white text.
