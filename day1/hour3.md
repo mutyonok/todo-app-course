@@ -144,8 +144,7 @@ Inside `<body>`, create:
 
 **4. List section:**
 - Use another `<section>` tag
-- Add `<ul>` (unordered list)
-- Keep the `<ul>` empty - no list items yet
+- Add unordered list (keep it empty, no todos yet)
 
 **Key semantic tags to use:**
 - `<main>` - wraps all content (only one per page)
@@ -153,13 +152,6 @@ Inside `<body>`, create:
 - `<section>` - for input area and list area (two sections total)
 - `<button>` - for the add button (NOT a div)
 - `<ul>` - for the task list
-
-**Important:** JavaScript will need to find three specific elements:
-- The input field
-- The button
-- The list
-
-Add unique `id` attributes to these three elements (name them whatever makes sense to you). You'll use these IDs tomorrow.
 
 **Try writing this completely from scratch.** Use your knowledge of HTML structure.
 
@@ -188,14 +180,9 @@ console.log('JavaScript file connected!');
 
 **Open index.html in browser:**
 
-**Method 1 - VS Code Live Server (recommended):**
 - Right-click `index.html` in VS Code
 - Select "Open with Live Server"
 - Browser opens automatically
-
-**Method 2 - Manual:**
-- In Finder, navigate to `todo-app` folder
-- Double-click `index.html`
 
 **Check the console:**
 - Press `Cmd + Option + J` (Chrome) or `Cmd + Option + C` (Safari)
