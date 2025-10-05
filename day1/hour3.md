@@ -17,12 +17,12 @@ Compare:
 ```html
 <!-- Non-semantic (bad) -->
 <div class="header">
-  <div class="title">My Todos</div>
+    <div class="title">My Todos</div>
 </div>
 
 <!-- Semantic (good) -->
 <header>
-  <h1>My Todos</h1>
+    <h1>My Todos</h1>
 </header>
 ```
 
@@ -33,30 +33,24 @@ Compare:
 3. **Maintainability:** Other developers (and future you) understand the code faster
 4. **Modern standards:** Frameworks like React still use semantic HTML underneath
 
-**Key semantic tags we'll use:**
-- `<header>` - Top section of page/section
-- `<main>` - Primary content (only one per page)
-- `<section>` - Thematic grouping of content
-- `<ul>` - Unordered list (perfect for todos)
-- `<button>` - Interactive element (NOT `<div onclick>`)
-
 This foundation makes adding accessibility features (Day 6) much easier.
 
 ---
 
 ## 💡 WHAT WE'RE ACHIEVING
 
-You'll create the HTML structure users will interact with: input field, add button, and list container. You'll link empty CSS and JavaScript files (creating them in the process). Then you'll use the professional git workflow to push everything live.
+You'll create the HTML structure users will interact with: input field, add button, and list container. You'll link empty CSS and JavaScript files. Then you'll use the professional git workflow to push everything live.
 
 ---
 
 ## 📋 THE PROCESS
 
 1. **Create the file structure** (HTML, CSS, JS files)
-2. **Write semantic HTML** boilerplate and todo structure
-3. **Link external files** properly
-4. **Test file connections** with console.log
-5. **Use professional git workflow** to deploy
+2. **Write HTML5 boilerplate**
+3. **Build the todo app structure** with semantic tags
+4. **Link external files** properly
+5. **Test file connections** with console.log
+6. **Use professional git workflow** to deploy
 
 ---
 
@@ -71,7 +65,7 @@ In VS Code, create three new files in your `todo-app` folder:
 3. Repeat for `styles.css`
 4. Repeat for `script.js`
 
-**Your folder structure should be:**
+**Your folder structure:**
 ```
 todo-app/
   ├── README.md
@@ -82,82 +76,109 @@ todo-app/
 
 ---
 
-### **Task 2: Write HTML structure (20 min)**
+### **Task 2: Write HTML5 boilerplate (10 min)**
 
-Open `index.html` and type this HTML5 boilerplate with semantic structure:
+Open `index.html`. Every HTML page needs this foundation:
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List App</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+**Required elements:**
+1. `<!DOCTYPE html>` declaration
+2. `<html>` root element with language
+3. `<head>` section with:
+    - Character encoding meta tag
+    - Viewport meta tag (for mobile responsiveness)
+    - Title
+    - Link to CSS file
+4. `<body>` section
+5. Script tag linking to JavaScript file
 
-  <main>
-    <header>
-      <h1>My Todo List</h1>
-    </header>
+**Write this from scratch.** Think through what each piece does.
 
-    <section class="todo-input">
-      <input 
-        type="text" 
-        id="taskInput" 
-        placeholder="What needs to be done?">
-      <button id="addBtn">Add Task</button>
-    </section>
-
-    <section class="todo-list">
-      <ul id="taskList"></ul>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
-```
-
-**Understanding the structure:**
-
-- `<!DOCTYPE html>` - Tells browser this is HTML5
-- `<html lang="en">` - Language for accessibility/SEO
-- `<meta charset="UTF-8">` - Character encoding (supports emojis, accents, etc.)
-- `<meta name="viewport"...>` - Makes responsive design work on mobile
-- `<main>` - Primary content wrapper (semantic)
-- `<header>` - Top section with title (semantic)
-- `<section>` - Two sections: input area and list area (semantic)
-- `<ul id="taskList"></ul>` - Empty list that JavaScript will fill
-- `id` attributes - How JavaScript will find these elements
-
-**Why these specific IDs:**
-- `taskInput` - the input field
-- `addBtn` - the add button
-- `taskList` - the `<ul>` where tasks will appear
-
-You'll use these IDs tomorrow with `getElementById()`.
+**Hints if stuck after 10 minutes:**
+- The doctype is: `<!DOCTYPE html>`
+- Language attribute: `lang="en"`
+- Charset: `UTF-8`
+- Viewport: `width=device-width, initial-scale=1.0`
+- CSS link goes in `<head>`, script goes before `</body>`
 
 ---
 
-### **Task 3: Link external files (5 min)**
+### **Task 3: Plan the app structure (5 min)**
 
-**Notice the links in your HTML:**
+Before writing more HTML, visualize what users will see:
 
-```html
-<link rel="stylesheet" href="styles.css">  <!-- In <head> -->
-<script src="script.js"></script>          <!-- Before </body> -->
 ```
+┌─────────────────────┐
+│   My Todo List      │  ← Heading
+├─────────────────────┤
+│ [input] [Add Task]  │  ← Input area
+├─────────────────────┤
+│                     │
+│  (empty list)       │  ← Where tasks appear
+│                     │
+└─────────────────────┘
+```
+
+**Three sections:**
+1. **Header** - The title
+2. **Input area** - Text input + button
+3. **List area** - Empty unordered list (JavaScript fills it later)
+
+---
+
+### **Task 4: Build the structure with semantic tags (20 min)**
+
+Inside `<body>`, create:
+
+**1. Main container:**
+- Use `<main>` tag (semantic: primary content)
+- Everything else goes inside this
+
+**2. Header section:**
+- Use `<header>` tag (semantic: introductory content)
+- Add `<h1>` heading with your app title
+
+**3. Input section:**
+- Use `<section>` tag (semantic: thematic grouping)
+- Add `<input>` with type "text"
+- Add `<button>` for submitting
+
+**4. List section:**
+- Use another `<section>` tag
+- Add `<ul>` (unordered list)
+- Keep the `<ul>` empty - no list items yet
+
+**Key semantic tags to use:**
+- `<main>` - wraps all content (only one per page)
+- `<header>` - for the title area
+- `<section>` - for input area and list area (two sections total)
+- `<button>` - for the add button (NOT a div)
+- `<ul>` - for the task list
+
+**Important:** JavaScript will need to find three specific elements:
+- The input field
+- The button
+- The list
+
+Add unique `id` attributes to these three elements (name them whatever makes sense to you). You'll use these IDs tomorrow.
+
+**Try writing this completely from scratch.** Use your knowledge of HTML structure.
+
+**Stuck after 15 minutes?** Ask Claude: "I'm building a todo app structure with main, header, two sections (input and list). What HTML tags should I use and where?"
+
+---
+
+### **Task 5: Link external files (already done!)**
+
+If you followed Task 2, your CSS and JavaScript are already linked:
+- `<link rel="stylesheet" href="styles.css">` in `<head>`
+- `<script src="script.js"></script>` before `</body>`
 
 **Why JavaScript goes at the bottom:**
-The browser reads HTML top-to-bottom. Script at the bottom means HTML loads before JavaScript runs - important for selecting elements that need to exist first.
-
-**Leave CSS and JS files empty for now** - we'll add content in the next tasks.
+Browser reads HTML top-to-bottom. Script at bottom means HTML loads before JavaScript runs - critical for selecting elements that must exist first.
 
 ---
 
-### **Task 4: Test JavaScript connection (10 min)**
+### **Task 6: Test JavaScript connection (10 min)**
 
 Open `script.js` and add:
 
@@ -173,66 +194,47 @@ console.log('JavaScript file connected!');
 - Browser opens automatically
 
 **Method 2 - Manual:**
-- In Finder, navigate to your `todo-app` folder
+- In Finder, navigate to `todo-app` folder
 - Double-click `index.html`
-- Opens in default browser
 
 **Check the console:**
-- In browser, press `Cmd + Option + J` (Chrome) or `Cmd + Option + C` (Safari)
-- You should see: `JavaScript file connected!`
+- Press `Cmd + Option + J` (Chrome) or `Cmd + Option + C` (Safari)
+- Should see: `JavaScript file connected!`
 
-**What you should see on the page:**
-- Heading: "My Todo List"
-- Input field with placeholder text
-- "Add Task" button
-- That's it - no styling yet
+**What you should see on page:**
+- Heading
+- Unstyled input field
+- Unstyled button
+- Empty space where list will be
 
 ✅ **Success check:** Console shows your message.
 
 ---
 
-### **Task 5: Professional git workflow (15 min)**
+### **Task 7: Professional git workflow (10 min)**
 
-**This is the exact workflow you'll use hundreds of times as a professional developer. Memorize this pattern.**
-
-**1. Check what changed:**
+**This exact pattern is used by developers worldwide, every day.**
 
 ```bash
 git status
 ```
+See three untracked files.
 
-You'll see three "untracked files": `index.html`, `styles.css`, `script.js`
-
-**2. Stage files (two methods):**
-
-**Method A - Add files individually:**
-```bash
-git add index.html
-git add styles.css
-git add script.js
-```
-
-**Method B - Add all at once (preferred):**
 ```bash
 git add .
 ```
+Stage all changes. The `.` means "everything in current directory."
 
 **Why we prefer `git add .`:**
-- Faster when you have many changes
-- You've already reviewed your changes (you wrote them)
-- In real projects, you commit related changes together
-- The `.` means "current directory and everything inside"
+- Faster with multiple files
+- You know what changed (you just wrote it)
+- Professional practice: commit related changes together
+- Only use when you've reviewed your changes
 
-**Professional tip:** Only use `git add .` when you know what's changed. Run `git status` first.
-
-**3. Check what's staged:**
 ```bash
 git status
 ```
-
-Files should now be "Changes to be committed" (green instead of red).
-
-**4. Commit with descriptive message:**
+Files now "Changes to be committed" (green).
 
 ```bash
 git commit -m "Add HTML structure with semantic elements"
@@ -244,72 +246,65 @@ git commit -m "Add HTML structure with semantic elements"
 - ❌ "update" (too vague)
 - ❌ "fixed stuff" (not descriptive)
 
-**5. Push to GitHub (and auto-deploy):**
-
 ```bash
 git push
 ```
 
-**This is the professional workflow:**
+**The professional workflow:**
 ```
-1. Make changes in VS Code
-2. git status (see what changed)
-3. git add . (stage all changes)
-4. git commit -m "Description of what you did"
-5. git push (upload to GitHub + deploy)
+1. Make changes
+2. git status (review)
+3. git add . (stage)
+4. git commit -m "what you did"
+5. git push (upload & deploy)
 ```
 
-**You'll do this 50+ times during this project. This exact pattern is used at Google, Meta, Netflix - everywhere.**
+**You'll use this pattern 50+ times in this project.**
 
-**6. Verify deployment (2 min):**
+**Verify deployment:**
 - Wait 30-60 seconds
-- Visit your GitHub Pages URL: `https://YOUR-USERNAME.github.io/todo-app/`
-- You should see your unstyled HTML
+- Visit: `https://YOUR-USERNAME.github.io/todo-app/`
+- Should see unstyled HTML
 
 ---
 
-### **Task 6: Understanding check (5 min)**
+### **Task 8: Understanding check (5 min)**
 
-Answer in your notes:
+Answer in notes:
 
-1. Why do we use `<button>` instead of `<div onclick="...">`?
-2. Why does the `<script>` tag go at the bottom of `<body>`?
-3. What's the difference between `git add index.html` and `git add .`?
-4. In the professional workflow, which command actually uploads your code to GitHub?
+1. Why `<button>` instead of `<div onclick="...">`?
+2. Why does `<script>` go at bottom of `<body>`?
+3. Name three semantic HTML tags you used and why each one.
+4. What does `git add .` do?
 
 ---
 
 ## ✅ SUCCESS CHECKS
 
-**You're done with Hour 3 when:**
-- [ ] `index.html` displays heading, input, and button in browser
-- [ ] Browser console shows "JavaScript file connected!"
-- [ ] GitHub repository shows all three new files
-- [ ] Your GitHub Pages URL displays the HTML (unstyled is fine)
-- [ ] You've used the complete git workflow: status → add → commit → push
+**You're done when:**
+- [ ] HTML displays heading, input, and button in browser
+- [ ] Console shows "JavaScript file connected!"
+- [ ] GitHub shows all three new files
+- [ ] GitHub Pages URL displays the HTML
+- [ ] You wrote the HTML yourself (not copied)
+- [ ] You used the git workflow: status → add . → commit → push
 
 ---
 
 ## ➜ UNDERSTANDING CHECK
 
-**Before moving on:**
-
-Look at your `index.html` and find three semantic tags (like `<main>`, `<header>`, `<section>`). For each one, explain in your own words why we used that specific tag instead of a `<div>`.
-
-Example: "We used `<main>` because..."
+Find three semantic tags in your HTML (`<main>`, `<header>`, `<section>`, etc.). For each, explain why you used that specific tag instead of `<div>`.
 
 ---
 
 ## 🎉 MILESTONE REACHED
 
 Your HTML structure is live! You have:
-- Semantic HTML that screen readers and search engines understand
-- Proper file linking (CSS and JS)
+- Semantic HTML written from scratch
+- File linking working
 - Tested JavaScript connection
-- Practiced the professional git workflow you'll use daily
+- Professional git workflow mastered
 
 **Remember:** `git status → git add . → git commit -m "message" → git push`
 
-This exact pattern is used by developers worldwide, every single day.
-
-**Next up:** Hour 4 - Transform this raw HTML into something visually appealing with CSS.
+**Next up:** Hour 4 - Transform this raw HTML with CSS styling.
