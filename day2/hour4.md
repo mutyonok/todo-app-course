@@ -72,9 +72,8 @@ element.classList.contains('class-name'); // Check if class exists
 In your CSS, create a `.completed` class (or `.done`, `.checked`, whatever name you prefer).
 
 **Suggested styling:**
-- Text decoration: line-through (crossed out text)
-- Color: lighter gray (#888, #999) to show it's done
-- Optional: Reduced opacity (0.6-0.7) for subtle fade effect
+- crossed out text
+- change text color or opacity for subtle fade effect
 
 **Success check:** No visual change yet (you haven't applied the class), but CSS is written
 
