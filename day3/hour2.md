@@ -258,11 +258,11 @@ get input value → create task object → add to tasks array → (render will h
 
 Here's how to think through it. When the add button is clicked, you need to:
 
-**Step 1:** Get and validate the input (you already have this)
-**Step 2:** Create a task object with id, text, and completed properties
-**Step 3:** Add that object to the tasks array
-**Step 4:** For now, use `console.log(tasks)` to see it working (next hour you'll properly display it)
-**Step 5:** Clear the input
+1. Get and validate the input (you already have this)
+2. Create a task object with id, text, and completed properties
+3. Add that object to the tasks array
+4. For now, use `console.log(tasks)` to see it working (next hour you'll properly display it)
+5. Clear the input (you already have this)
 
 **Troubleshooting tips:**
 
