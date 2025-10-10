@@ -101,6 +101,9 @@ Add one line at the bottom of your JavaScript file (outside any function) that c
 
 **Why outside a function?** Code at the top level of your JS file runs immediately when the script loads. Code *inside* functions only runs when you call them.
 
+**Why at the bottom of the file?** JavaScript reads your file from top to bottom. It's a rule of thumb: first define a function, only then call it. 
+This makes code readable and error-prone.
+
 **Success check:**
 - Refresh the page → saved tasks appear
 - Open DevTools Application tab → localStorage still has your data
@@ -137,11 +140,14 @@ What if localStorage contains invalid JSON? Your app would crash. Wrap the JSON.
 
 **Try-catch example (not from project):**
 ```javascript
+const possiblyBadData = localStorage.getItem('data');
+let result;
 try {
-    let result = JSON.parse(possiblyBadData);
+    result = JSON.parse(possiblyBadData);
 } catch (error) {
     console.log('Parsing failed:', error);
     // Use default value instead
+    result = [];
 }
 ```
 
@@ -153,22 +159,15 @@ Apply this pattern to your `loadTasks()` function. If parsing fails, default to 
 
 Answer these before moving on:
 
-1. **Why do we need `|| []` after JSON.parse?**
+1. **Why do we need default value when reading from localStorage?**
     - What happens on the very first page load before any tasks exist?
 
-2. **What's the difference between these two?**
-   ```javascript
-   loadTasks();              // Line A
-   addBtn.addEventListener('click', loadTasks); // Line B
-   ```
-    - When does Line A run? When does Line B run?
-
-3. **Trace the full cycle:**
+2. **Trace the full cycle:**
     - User adds task → what happens to the data?
     - User refreshes page → what happens to the data?
     - Draw or write out each step
 
-4. **What would break if you forgot to call `renderTasks()` at the end of `loadTasks()`?**
+3. **What would break if you forgot to call `renderTasks()` at the end of `loadTasks()`?**
 
 ---
 
