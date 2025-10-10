@@ -134,27 +134,6 @@ console.log('Parsed tasks array:', tasks);
 
 ---
 
-### 4. Optional: Add error handling (10 min)
-
-What if localStorage contains invalid JSON? Your app would crash. Wrap the JSON.parse in a try-catch:
-
-**Try-catch example (not from project):**
-```javascript
-const possiblyBadData = localStorage.getItem('data');
-let result;
-try {
-    result = JSON.parse(possiblyBadData) || [];
-} catch (error) {
-    console.log('Parsing failed:', error);
-    // Use default value instead
-    result = [];
-}
-```
-
-Apply this pattern to your `loadTasks()` function. If parsing fails, default to an empty array.
-
----
-
 ## Understanding Checks
 
 Answer these before moving on:
