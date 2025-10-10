@@ -143,7 +143,7 @@ What if localStorage contains invalid JSON? Your app would crash. Wrap the JSON.
 const possiblyBadData = localStorage.getItem('data');
 let result;
 try {
-    result = JSON.parse(possiblyBadData);
+    result = JSON.parse(possiblyBadData) || [];
 } catch (error) {
     console.log('Parsing failed:', error);
     // Use default value instead
